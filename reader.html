@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1024" />
+    <title>ePaper Reader</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="reader-body">
+
+    <!-- Reader Header -->
+    <header class="reader-header sticky-top">
+      <div class="container-fluid px-3">
+        <div class="d-flex align-items-center justify-content-between py-2">
+          <a href="index.html" class="back-btn">
+            <i class="bi bi-arrow-left"></i>
+            <span>Back</span>
+          </a>
+          <div class="reader-title-area text-center">
+            <span class="reader-masthead">ePaper<span class="masthead-dot">.</span></span>
+            <span class="reader-edition-label" id="reader-edition-label">Loading...</span>
+          </div>
+          <div class="reader-controls d-flex align-items-center gap-2">
+            <button class="icon-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+              <i class="bi bi-arrow-up-circle"></i>
+            </button>
+            <button class="refresh-btn" onclick="reloadPages()" title="Reload all pages" id="refresh-btn">
+              <i class="bi bi-arrow-clockwise"></i>
+              <span class="refresh-btn-label">Reload</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section Tabs -->
+    <div class="section-tabs-bar sticky-top" id="section-tabs-bar">
+      <div class="container-fluid px-3">
+        <div class="section-tabs d-flex gap-2" id="section-tabs">
+          <!-- Tabs injected by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Reader -->
+    <main class="reader-main">
+      <div class="reader-container" id="reader-container">
+
+        <!-- Newspaper Section -->
+        <section class="paper-section" id="section-newspaper">
+          <div class="section-divider">
+            <span>Newspaper</span>
+          </div>
+          <div id="paper-pages" class="pages-grid">
+            <!-- Pages injected by JS -->
+          </div>
+        </section>
+
+        <!-- Magazine Section (conditionally shown) -->
+        <section class="paper-section" id="section-magazine" style="display:none;">
+          <div class="section-divider">
+            <span>Magazine</span>
+          </div>
+          <div id="mag-pages" class="pages-grid">
+            <!-- Pages injected by JS -->
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Status Bar -->
+      <div class="status-bar" id="status-bar">
+        <div class="container-fluid px-3">
+          <div class="d-flex align-items-center justify-content-between">
+            <span id="status-text">Loading pages...</span>
+            <span id="status-counter"></span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/reader.js"></script>
+  </body>
+</html>

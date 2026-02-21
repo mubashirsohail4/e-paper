@@ -2,48 +2,209 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1024" />
-    <title>Newspaper</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="manifest" href="site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ePaper Reader</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <main>
-      <div class="container">
-        <img class="paper-img pg0" src="./loading.gif" alt="" />
-        <img class="paper-img pg1" src="./loading.gif" alt="" />
-        <img class="paper-img pg2" src="./loading.gif" alt="" />
-        <img class="paper-img pg3" src="./loading.gif" alt="" />
-        <img class="paper-img pg4" src="./loading.gif" alt="" />
-        <img class="paper-img pg5" src="./loading.gif" alt="" />
-        <img class="paper-img pg6" src="./loading.gif" alt="" />
-        <img class="paper-img pg7" src="./loading.gif" alt="" />
-        <img class="paper-img pg8" src="./loading.gif" alt="" />
-        <img class="paper-img pg9" src="./loading.gif" alt="" />
-        <img class="paper-img pg10" src="" alt="" />
-        <img class="paper-img pg11" src="" alt="" />
-        <img class="paper-img pg12" src="" alt="" />
-        <img class="paper-img pg13" src="" alt="" />
 
-        <img class="mag-img pg0" src="./loading.gif" alt="" />
-        <img class="mag-img pg1" src="./loading.gif" alt="" />
-        <img class="mag-img pg2" src="./loading.gif" alt="" />
-        <img class="mag-img pg3" src="./loading.gif" alt="" />
-        <img class="mag-img pg4" src="./loading.gif" alt="" />
-        <img class="mag-img pg5" src="./loading.gif" alt="" />
-        <img class="mag-img pg6" src="./loading.gif" alt="" />
-        <img class="mag-img pg7" src="./loading.gif" alt="" />
-        <img class="mag-img pg8" src="./loading.gif" alt="" />
-        <img class="mag-img pg9" src="./loading.gif" alt="" />
-        <img class="mag-img pg10" src="./loading.gif" alt="" />
-        <img class="mag-img pg11" src="./loading.gif" alt="" />
-        <img class="mag-img pg12" src="./loading.gif" alt="" />
-        <img class="mag-img pg13" src="./loading.gif" alt="" />
-        <img class="mag-img pg14" src="./loading.gif" alt="" />
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-rule"></div>
+      <div class="container-fluid px-4">
+        <div class="header-inner d-flex align-items-center justify-content-between py-2">
+          <div class="header-title">
+            <h1 class="masthead">ePaper<span class="masthead-dot">.</span></h1>
+            <p class="masthead-tagline">Your daily digital newspaper reader</p>
+          </div>
+          <div class="header-date">
+            <span id="header-date-str"></span>
+          </div>
+          <!-- <div class="header-right"> -->
+            <!-- <span class="edition-badge">Karachi Edition</span> -->
+          <!-- </div> -->
+        </div>
+      </div>
+      <div class="header-rule thick"></div>
+    </header>
+
+    <!-- Main -->
+    <main class="main-content">
+      <div class="container py-5">
+
+        <!-- Sources Section -->
+        <!-- <div class="row justify-content-center mb-5">
+          <div class="col-12 col-lg-10">
+            <h2 class="section-heading">Select Newspaper</h2>
+            <div class="source-rule"></div>
+
+            <div class="row g-4 mt-2"> -->
+
+              <!-- Express (Active) -->
+              <!-- <div class="col-12 col-md-6 col-lg-4">
+                <div class="newspaper-card active" data-source="express" onclick="selectSource(this)">
+                  <div class="newspaper-card-inner">
+                    <div class="newspaper-logo">
+                      <span class="logo-text urdu">ایکسپریس</span>
+                      <span class="logo-sub">The Express Tribune / Urdu</span>
+                    </div>
+                    <div class="newspaper-meta">
+                      <span class="badge-lang">Urdu</span>
+                      <span class="badge-city">Karachi</span>
+                    </div>
+                    <div class="newspaper-status active-status">
+                      <i class="bi bi-check-circle-fill"></i> Available
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- Placeholder 2 -->
+              <!-- <div class="col-12 col-md-6 col-lg-4">
+                <div class="newspaper-card coming-soon">
+                  <div class="newspaper-card-inner">
+                    <div class="newspaper-logo">
+                      <span class="logo-text">Dawn</span>
+                      <span class="logo-sub">Dawn Newspaper</span>
+                    </div>
+                    <div class="newspaper-meta">
+                      <span class="badge-lang">English</span>
+                      <span class="badge-city">Karachi</span>
+                    </div>
+                    <div class="newspaper-status soon-status">
+                      <i class="bi bi-clock"></i> Coming Soon
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- Placeholder 3 -->
+              <!-- <div class="col-12 col-md-6 col-lg-4">
+                <div class="newspaper-card coming-soon">
+                  <div class="newspaper-card-inner">
+                    <div class="newspaper-logo">
+                      <span class="logo-text">Jang</span>
+                      <span class="logo-sub">Jang Newspaper</span>
+                    </div>
+                    <div class="newspaper-meta">
+                      <span class="badge-lang">Urdu</span>
+                      <span class="badge-city">Karachi</span>
+                    </div>
+                    <div class="newspaper-status soon-status">
+                      <i class="bi bi-clock"></i> Coming Soon
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Date Selector -->
+        <div class="row justify-content-center mb-5">
+          <div class="col-12 col-lg-10">
+            <h2 class="section-heading">Edition Date</h2>
+            <div class="source-rule"></div>
+            <div class="d-flex align-items-center gap-3 mt-3 flex-wrap">
+              <div class="date-pill active-date-pill" id="today-pill" onclick="selectDateMode('today')">
+                <i class="bi bi-calendar-check"></i> Today's Edition
+              </div>
+              <div class="date-pill" id="custom-pill" onclick="selectDateMode('custom')">
+                <i class="bi bi-calendar3"></i> Choose Date
+              </div>
+              <input type="date" id="custom-date-input" class="date-input" style="display:none;" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Load Options -->
+        <div class="row justify-content-center mb-5">
+          <div class="col-12 col-lg-10">
+            <h2 class="section-heading">Load Method</h2>
+            <div class="source-rule"></div>
+            <p class="method-description mt-3">
+              On regular days, use <strong>Method 1</strong>. On holidays or Sundays when the page layout changes, try <strong>Method 2</strong>.
+            </p>
+
+            <div class="row g-3 mt-1">
+              <div class="col-12 col-sm-6">
+                <div class="method-card selected" id="method1-card" onclick="selectMethod(1)">
+                  <div class="method-number">01</div>
+                  <div class="method-info">
+                    <div class="method-title">Regular Day</div>
+                    <div class="method-subtitle">Weekday layout (Mon–Sat)</div>
+                  </div>
+                  <div class="method-check" id="method1-check">
+                    <i class="bi bi-check-lg"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="method-card" id="method2-card" onclick="selectMethod(2)">
+                  <div class="method-number">02</div>
+                  <div class="method-info">
+                    <div class="method-title">Holiday / Sunday</div>
+                    <div class="method-subtitle">Special edition layout</div>
+                  </div>
+                  <div class="method-check" id="method2-check" style="display:none;">
+                    <i class="bi bi-check-lg"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Magazine Toggle -->
+        <div class="row justify-content-center mb-5">
+          <div class="col-12 col-lg-10">
+            <h2 class="section-heading">Include Magazine</h2>
+            <div class="source-rule"></div>
+            <p class="method-description mt-3">
+              The weekly magazine supplement loads from the Sunday of the selected week. Enable it only if you need it.
+            </p>
+            <div class="mag-toggle-row mt-3 d-flex align-items-center gap-3">
+              <div class="toggle-switch-wrap" onclick="toggleMagazine()">
+                <div class="toggle-track" id="mag-toggle-track">
+                  <div class="toggle-thumb" id="mag-toggle-thumb"></div>
+                </div>
+              </div>
+              <span class="toggle-label" id="mag-toggle-label">Magazine <strong>OFF</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Launch Button -->
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10 text-center">
+            <button class="launch-btn" onclick="launchReader()">
+              <span class="launch-btn-text">Open Newspaper</span>
+              <i class="bi bi-arrow-right-circle-fill ms-2"></i>
+            </button>
+            <p class="launch-note mt-3">Opens in the same tab. Use your browser's back button to return.</p>
+          </div>
+        </div>
+
       </div>
     </main>
-  </body>
 
-  <script src="./index.js"></script>
+    <!-- Footer -->
+    <footer class="site-footer-bottom">
+      <div class="container text-center py-4">
+        <p class="footer-text">ePaper Reader &mdash; Built for convenience. Not affiliated with any newspaper.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/home.js"></script>
+  </body>
 </html>
