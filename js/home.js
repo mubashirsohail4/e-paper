@@ -2,12 +2,10 @@
    ePaper Reader - Home Page Script
    ============================================================ */
 
-let selectedMethod = 1;
 let selectedSource = 'express';
 let dateMode = 'today';
-let includeMagazine = false;
 
-// Set today's date string in header
+// Header date
 (function () {
   const now = new Date();
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -20,36 +18,26 @@ let includeMagazine = false;
   input.value = todayStr;
 })();
 
-function selectMethod(method) {
-  selectedMethod = method;
-  const card1 = document.getElementById('method1-card');
-  const card2 = document.getElementById('method2-card');
-  const check1 = document.getElementById('method1-check');
-  const check2 = document.getElementById('method2-check');
-
-  if (method === 1) {
-    card1.classList.add('selected');
-    card2.classList.remove('selected');
-    check1.style.display = '';
-    check2.style.display = 'none';
-  } else {
-    card2.classList.add('selected');
-    card1.classList.remove('selected');
-    check2.style.display = '';
-    check1.style.display = 'none';
-  }
-}
-
 function selectSource(el) {
-  if (el.classList.contains('coming-soon')) return;
   selectedSource = el.dataset.source;
   document.querySelectorAll('.newspaper-card').forEach(c => c.classList.remove('active'));
   el.classList.add('active');
+
+  // Show magazine button only for Express
+  const magBtn  = document.getElementById('mag-btn');
+  const magNote = document.getElementById('mag-note');
+  if (selectedSource === 'express') {
+    magBtn.style.display  = '';
+    magNote.style.display = '';
+  } else {
+    magBtn.style.display  = 'none';
+    magNote.style.display = 'none';
+  }
 }
 
 function selectDateMode(mode) {
   dateMode = mode;
-  const todayPill = document.getElementById('today-pill');
+  const todayPill  = document.getElementById('today-pill');
   const customPill = document.getElementById('custom-pill');
   const customInput = document.getElementById('custom-date-input');
 
@@ -65,46 +53,42 @@ function selectDateMode(mode) {
   }
 }
 
-function toggleMagazine() {
-  includeMagazine = !includeMagazine;
-  const track = document.getElementById('mag-toggle-track');
-  const label = document.getElementById('mag-toggle-label');
-
-  if (includeMagazine) {
-    track.classList.add('on');
-    label.innerHTML = 'Magazine <strong>ON</strong>';
+function getTargetDate() {
+  if (dateMode === 'today') {
+    // Pakistan Standard Time = UTC+5
+    const pst = new Date(Date.now() + 5 * 60 * 60 * 1000);
+    // If before noon, show previous day
+    if (pst.getUTCHours() < 12) pst.setUTCDate(pst.getUTCDate() - 1);
+    return pst;
   } else {
-    track.classList.remove('on');
-    label.innerHTML = 'Magazine <strong>OFF</strong>';
+    const val = document.getElementById('custom-date-input').value;
+    if (!val) return null;
+    const [y, m, d] = val.split('-').map(Number);
+    return new Date(Date.UTC(y, m - 1, d, 12, 0, 0));
   }
 }
 
-function launchReader() {
-  let targetDate;
-
-  if (dateMode === 'today') {
-    const now = new Date();
-    const pst = new Date(now.getTime() + 5 * 60 * 60 * 1000);
-    targetDate = pst;
-    if (targetDate.getUTCHours() < 12) {
-      targetDate.setUTCDate(targetDate.getUTCDate() - 1);
-    }
-  } else {
-    const val = document.getElementById('custom-date-input').value;
-    if (!val) { alert('Please select a date.'); return; }
-    const [y, m, d] = val.split('-').map(Number);
-    targetDate = new Date(Date.UTC(y, m - 1, d, 12, 0, 0));
-  }
-
+function buildDateStr(date) {
   const pad = n => String(n).padStart(2, '0');
-  const dateStr = `${targetDate.getUTCFullYear()}${pad(targetDate.getUTCMonth() + 1)}${pad(targetDate.getUTCDate())}`;
+  return `${date.getUTCFullYear()}${pad(date.getUTCMonth() + 1)}${pad(date.getUTCDate())}`;
+}
 
+function launchReader() {
+  const date = getTargetDate();
+  if (!date) { alert('Please select a date.'); return; }
   const params = new URLSearchParams({
     source: selectedSource,
-    method: selectedMethod,
-    date: dateStr,
-    mag: includeMagazine ? '1' : '0',
+    date:   buildDateStr(date),
   });
-
   window.location.href = `reader.html?${params.toString()}`;
+}
+
+function launchMagazine() {
+  // Magazine is always the latest Sunday Express edition
+  const pst = new Date(Date.now() + 5 * 60 * 60 * 1000);
+  // Find most recent Sunday (today if sunday, otherwise go back)
+  const dayOfWeek = pst.getUTCDay(); // 0=Sunday
+  pst.setUTCDate(pst.getUTCDate() - dayOfWeek);
+  const params = new URLSearchParams({ date: buildDateStr(pst) });
+  window.location.href = `magazine.html?${params.toString()}`;
 }

@@ -16,100 +16,84 @@
   </head>
   <body>
 
-    <!-- Header -->
     <header class="site-header">
       <div class="header-rule"></div>
       <div class="container-fluid px-4">
         <div class="header-inner d-flex align-items-center justify-content-between py-2">
+          <div class="header-date"><span id="header-date-str"></span></div>
           <div class="header-title">
             <h1 class="masthead">ePaper<span class="masthead-dot">.</span></h1>
             <p class="masthead-tagline">Your daily digital newspaper reader</p>
           </div>
-          <div class="header-date">
-            <span id="header-date-str"></span>
-          </div>
-          <!-- <div class="header-right"> -->
-            <!-- <span class="edition-badge">Karachi Edition</span> -->
-          <!-- </div> -->
+          <div class="header-right"><span class="edition-badge">Karachi Edition</span></div>
         </div>
       </div>
       <div class="header-rule thick"></div>
     </header>
 
-    <!-- Main -->
     <main class="main-content">
       <div class="container py-5">
 
-        <!-- Sources Section -->
-        <!-- <div class="row justify-content-center mb-5">
+        <!-- Sources -->
+        <div class="row justify-content-center mb-5">
           <div class="col-12 col-lg-10">
             <h2 class="section-heading">Select Newspaper</h2>
             <div class="source-rule"></div>
+            <div class="row g-4 mt-2">
 
-            <div class="row g-4 mt-2"> -->
-
-              <!-- Express (Active) -->
-              <!-- <div class="col-12 col-md-6 col-lg-4">
+              <div class="col-12 col-md-4">
                 <div class="newspaper-card active" data-source="express" onclick="selectSource(this)">
                   <div class="newspaper-card-inner">
                     <div class="newspaper-logo">
                       <span class="logo-text urdu">ایکسپریس</span>
-                      <span class="logo-sub">The Express Tribune / Urdu</span>
+                      <span class="logo-sub">Daily Express Urdu</span>
                     </div>
                     <div class="newspaper-meta">
-                      <span class="badge-lang">Urdu</span>
-                      <span class="badge-city">Karachi</span>
+                      <span class="badge-lang">اردو</span>
+                      <span class="badge-city">کراچی</span>
                     </div>
-                    <div class="newspaper-status active-status">
-                      <i class="bi bi-check-circle-fill"></i> Available
-                    </div>
+                    <div class="newspaper-status active-status"><i class="bi bi-check-circle-fill"></i> Available</div>
                   </div>
                 </div>
-              </div> -->
+              </div>
 
-              <!-- Placeholder 2 -->
-              <!-- <div class="col-12 col-md-6 col-lg-4">
-                <div class="newspaper-card coming-soon">
+              <div class="col-12 col-md-4">
+                <div class="newspaper-card" data-source="jang" onclick="selectSource(this)">
                   <div class="newspaper-card-inner">
                     <div class="newspaper-logo">
-                      <span class="logo-text">Dawn</span>
-                      <span class="logo-sub">Dawn Newspaper</span>
+                      <span class="logo-text urdu">جنگ</span>
+                      <span class="logo-sub">Daily Jang Urdu</span>
                     </div>
                     <div class="newspaper-meta">
-                      <span class="badge-lang">English</span>
-                      <span class="badge-city">Karachi</span>
+                      <span class="badge-lang">اردو</span>
+                      <span class="badge-city">کراچی</span>
                     </div>
-                    <div class="newspaper-status soon-status">
-                      <i class="bi bi-clock"></i> Coming Soon
-                    </div>
+                    <div class="newspaper-status active-status"><i class="bi bi-check-circle-fill"></i> Available</div>
                   </div>
                 </div>
-              </div> -->
+              </div>
 
-              <!-- Placeholder 3 -->
-              <!-- <div class="col-12 col-md-6 col-lg-4">
-                <div class="newspaper-card coming-soon">
+              <div class="col-12 col-md-4">
+                <div class="newspaper-card" data-source="ummat" onclick="selectSource(this)">
                   <div class="newspaper-card-inner">
                     <div class="newspaper-logo">
-                      <span class="logo-text">Jang</span>
-                      <span class="logo-sub">Jang Newspaper</span>
+                      <span class="logo-text urdu">امت</span>
+                      <span class="logo-sub">Daily Ummat Urdu</span>
                     </div>
                     <div class="newspaper-meta">
-                      <span class="badge-lang">Urdu</span>
-                      <span class="badge-city">Karachi</span>
+                      <span class="badge-lang">اردو</span>
+                      <span class="badge-city">کراچی</span>
                     </div>
-                    <div class="newspaper-status soon-status">
-                      <i class="bi bi-clock"></i> Coming Soon
-                    </div>
+                    <div class="newspaper-status active-status"><i class="bi bi-check-circle-fill"></i> Available</div>
                   </div>
                 </div>
               </div>
 
             </div>
           </div>
-        </div> -->
+        </div>
 
-        <!-- Date Selector -->
+        <!-- Date -->
         <div class="row justify-content-center mb-5">
           <div class="col-12 col-lg-10">
             <h2 class="section-heading">Edition Date</h2>
@@ -126,81 +110,34 @@
           </div>
         </div>
 
-        <!-- Load Options -->
-        <div class="row justify-content-center mb-5">
-          <div class="col-12 col-lg-10">
-            <h2 class="section-heading">Load Method</h2>
-            <div class="source-rule"></div>
-            <p class="method-description mt-3">
-              On regular days, use <strong>Method 1</strong>. On holidays or Sundays when the page layout changes, try <strong>Method 2</strong>.
-            </p>
-
-            <div class="row g-3 mt-1">
-              <div class="col-12 col-sm-6">
-                <div class="method-card selected" id="method1-card" onclick="selectMethod(1)">
-                  <div class="method-number">01</div>
-                  <div class="method-info">
-                    <div class="method-title">Regular Day</div>
-                    <div class="method-subtitle">Weekday layout (Mon–Sat)</div>
-                  </div>
-                  <div class="method-check" id="method1-check">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6">
-                <div class="method-card" id="method2-card" onclick="selectMethod(2)">
-                  <div class="method-number">02</div>
-                  <div class="method-info">
-                    <div class="method-title">Holiday / Sunday</div>
-                    <div class="method-subtitle">Special edition layout</div>
-                  </div>
-                  <div class="method-check" id="method2-check" style="display:none;">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Magazine Toggle -->
-        <div class="row justify-content-center mb-5">
-          <div class="col-12 col-lg-10">
-            <h2 class="section-heading">Include Magazine</h2>
-            <div class="source-rule"></div>
-            <p class="method-description mt-3">
-              The weekly magazine supplement loads from the Sunday of the selected week. Enable it only if you need it.
-            </p>
-            <div class="mag-toggle-row mt-3 d-flex align-items-center gap-3">
-              <div class="toggle-switch-wrap" onclick="toggleMagazine()">
-                <div class="toggle-track" id="mag-toggle-track">
-                  <div class="toggle-thumb" id="mag-toggle-thumb"></div>
-                </div>
-              </div>
-              <span class="toggle-label" id="mag-toggle-label">Magazine <strong>OFF</strong></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Launch Button -->
+        <!-- Buttons -->
         <div class="row justify-content-center">
-          <div class="col-12 col-lg-10 text-center">
-            <button class="launch-btn" onclick="launchReader()">
-              <span class="launch-btn-text">Open Newspaper</span>
-              <i class="bi bi-arrow-right-circle-fill ms-2"></i>
-            </button>
-            <p class="launch-note mt-3">Opens in the same tab. Use your browser's back button to return.</p>
+          <div class="col-12 col-lg-10">
+            <div class="d-flex flex-wrap gap-3 justify-content-center align-items-center">
+              <button class="launch-btn primary-launch" onclick="launchReader()">
+                <i class="bi bi-newspaper me-2"></i>
+                <span>Open Newspaper</span>
+                <i class="bi bi-arrow-right-circle-fill ms-2"></i>
+              </button>
+              <button class="launch-btn secondary-launch" id="mag-btn" onclick="launchMagazine()" style="display:none;">
+                <i class="bi bi-journal-richtext me-2"></i>
+                <span>Open Magazine</span>
+                <i class="bi bi-arrow-right-circle-fill ms-2"></i>
+              </button>
+            </div>
+            <p class="launch-note mt-3 text-center">
+              Pages are detected automatically &mdash; no method selection needed.<br>
+              <span id="mag-note" style="display:none;">Express Magazine is the Sunday weekly supplement (latest Sunday).</span>
+            </p>
           </div>
         </div>
 
       </div>
     </main>
 
-    <!-- Footer -->
     <footer class="site-footer-bottom">
       <div class="container text-center py-4">
-        <p class="footer-text">ePaper Reader &mdash; Built for convenience. Not affiliated with any newspaper.</p>
+        <p class="footer-text">ePaper Reader &mdash; Not affiliated with any newspaper.</p>
       </div>
     </footer>
 
